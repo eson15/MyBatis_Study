@@ -21,4 +21,3 @@ sqlSession.insert("test.insertUser", user);
 
 如果mapper方法返回单个pojo对象（非集合对象），代理对象内部通过selectOne来查询数据库
 如果mapper方法返回一个非集合对象，代理对象内部通过selectList来查询数据库
-
