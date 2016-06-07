@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  -->
 <mapper namespace="mybatis.mapper.UserMapper">
 	
-	<select id="findUserById" parameterType="int" resultType="mybatis.po.User">
+	<select id="findUserById" parameterType="int" resultType="user">
 		select * from user where id = #{id}
 	</select>
 	

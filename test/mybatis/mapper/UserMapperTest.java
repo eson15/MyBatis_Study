@@ -1,8 +1,8 @@
 package mybatis.mapper;
-
 import java.io.InputStream;
 import java.util.List;
 
+import mybatis.mapper.UserMapper;
 import mybatis.po.User;
 
 import org.apache.ibatis.io.Resources;

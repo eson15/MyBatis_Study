@@ -1,6 +1,8 @@
 package mybatis.dao;
-
 import java.io.InputStream;
+
+import mybatis.dao.UserDao;
+import mybatis.dao.UserDaoImpl;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
