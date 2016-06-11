@@ -15,6 +15,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findUserByName" parameterType="java.lang.String" resultType="mybatis.po.User">
 		select * from user where username like '%${value}%'
 	</select>
+	
+	<select id="findUserList" parameterType="mybatis.po.UserQueryVo" resultType="mybatis.po.User">
+		select * from user where user.sex = #{user.sex} and user.username like '%${user.username}%'
+	</select>
 
 	<insert id="insertUser" parameterType="mybatis.po.User">
 		insert into user(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
@@ -23,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select last_insert_id()
 		</selectKey>
 		
-	</insert>
+	</insert> 
 
 	<delete id="deleteUser" parameterType="int">
 		delete from user where id=#{id}

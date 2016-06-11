@@ -4,6 +4,7 @@ import java.util.List;
 
 import mybatis.mapper.UserMapper;
 import mybatis.po.User;
+import mybatis.po.UserQueryVo;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -47,6 +48,25 @@ private SqlSessionFactory sqlSessionFactory;
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 		List<User> list = userMapper.findUserByName("倪升武");
 		sqlSession.close();
+		System.out.println(list);
+	}
+	
+	@Test
+	public void testFindUserList() throws Exception {
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		//创建UserMapper对象，mybatis自动生成mapper代理对象
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		
+		//创建包装对象，设置查询条件
+		UserQueryVo userQueryVo = new UserQueryVo();
+		User user = new User();
+		user.setSex("男");
+		user.setUsername("倪升武");
+		userQueryVo.setUser(user);
+		
+		//调用userMapper的方法
+		List<User> list = userMapper.findUserList(userQueryVo);
 		System.out.println(list);
 	}
 
