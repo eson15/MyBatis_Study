@@ -7,6 +7,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 注意：使用mapper代理方法开发的话，namespace就有特殊重要的作用了,namespace=mapper接口地址
  -->
 <mapper namespace="mybatis.mapper.UserMapper">
+
+	<!-- 定义resultMap
+	将SELECT id id_,username username_ FROM USER 和User类中的属性做一个映射关系
+	type: resultMap最终映射的java对象类型，这里用的是别名，如果没有定义别名，需要使用完全限定名
+	id：对resultMap的唯一标识
+	 -->
+	<resultMap type="user" id="userResultMap">
+		<!-- id表示查询结果集中唯一标识
+		column：查询出来的列名
+		property：type指定的pojo类型中的属性名
+		最终resultMap对column和property做一个映射关系（对应关系）
+		 -->
+		<id column="id_" property="id"/>
+		<!-- result表示查询结果集中普通名映射的定义
+		column：查询出来的列名
+		property：type指定的pojo类型中的属性名
+		 -->
+		<result column="username_" property="username"/>
+	</resultMap>
 	
 	<select id="findUserById" parameterType="int" resultType="user">
 		select * from user where id = #{id}
@@ -18,6 +37,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="findUserList" parameterType="mybatis.po.UserQueryVo" resultType="mybatis.po.User">
 		select * from user where user.sex = #{user.sex} and user.username like '%${user.username}%'
+	</select>
+	
+	<select id="findUserByIdResultMap" parameterType="int" resultMap="userResultMap">
+		SELECT id id_,username username_ from user where id = #{id}
 	</select>
 
 	<insert id="insertUser" parameterType="mybatis.po.User">

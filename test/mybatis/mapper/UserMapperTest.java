@@ -69,5 +69,16 @@ private SqlSessionFactory sqlSessionFactory;
 		List<User> list = userMapper.findUserList(userQueryVo);
 		System.out.println(list);
 	}
+	
+	@Test
+	public void testFindUserByIdResultMap() throws Exception {
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		//创建UserMapper对象，mybatis自动生成mapper代理对象
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		
+		User user = userMapper.findUserByIdResultMap(1);
+		System.out.println(user);
+	}
 
 }

@@ -13,6 +13,8 @@ public interface UserMapper {
 	public List<User> findUserByName(String name) throws Exception;
 	//用户信息综合查询
 	public List<User> findUserList(UserQueryVo userQueryVo) throws Exception;
+	//根据id查询用户信息，使用resultMap输出
+	public User findUserByIdResultMap(int id) throws Exception;
 	//添加用户信息
 	public void insertUser(User user) throws Exception;
 	//删除用户信息

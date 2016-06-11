@@ -10,3 +10,8 @@
 4.1.5 测试UserMapperTest.java
 
 4.2 输出映射	
+4.2.1 resultType：前面已经有介绍了
+4.2.2 resultMap：完成高级输出结果映射
+	如果查询出来的列名和pojo的属性名不一致，通过定义一个resultMap对列名和pojo属性名之间作一个映射关系。
+	1. 定义resultMap
+	2. 使用resultMap作为statement的输出映射类型
