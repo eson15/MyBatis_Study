@@ -14,10 +14,10 @@ SqlMapConfig.xml是mybatis的全局配置的文件，配置的内容如下：
 		dataSource(数据源)
 8. mappers(映射器)
 
-具体细节：
+具体细节： 
 1. properties属性
 需求：将数据库连接参数单独配在db.properties文件中，只需要在SqlMapConfig.xml中加载db.properties的属性值
-在SqlMapConfig.xml中就不需要对数据库连接参数进行硬编码了
+在SqlMapConfig.xml中就不需要对数据库连接参数进行硬编码了。
 SqlMapConfig.xml中加载属性文件：
 	<properties resource="db.properties"></properties>
 	在properties内部还可以定义属性值：<property name="" value=""/>
