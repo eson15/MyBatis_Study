@@ -8,6 +8,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  -->
 <mapper namespace="mybatis.mapper.UserMapper">
 
+	<sql id="query_user_where">
+		<if test="user!=null">
+			<if test="user.sex!=null and user.sex!=''">
+				and user.sex = #{user.sex}
+			</if>
+			<if test="user.username!=null and user.username!=''">
+				and user.username like '%${user.username}%'
+			</if>
+		</if>
+		<if test="ids!=null">
+			<foreach collection="ids" item="user_id" open="AND (" close=")" separator="OR">
+				id=#{user_id}
+			</foreach>
+			<!-- 
+			<foreach collection="ids" item="user_id" open="AND id IN(" close=")" separator=",">
+				#{user_id}
+			</foreach>
+			 -->
+		</if>
+	</sql>
+
 	<!-- 定义resultMap
 	将SELECT id id_,username username_ FROM USER 和User类中的属性做一个映射关系
 	type: resultMap最终映射的java对象类型，这里用的是别名，如果没有定义别名，需要使用完全限定名
@@ -36,7 +57,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="findUserList" parameterType="mybatis.po.UserQueryVo" resultType="mybatis.po.User">
-		select * from user where user.sex = #{user.sex} and user.username like '%${user.username}%'
+		select * from user
+		<!-- where可以自动去掉条件中的第一个and -->
+		<where>
+			<!-- 引用sql片段的id，如果refid指定的id不在本mapper文件中，需要在前面加上namespace -->
+			<include refid="query_user_where"></include>
+			<!-- 还可以引用其他sql片段 -->
+		</where>
 	</select>
 	
 	<select id="findUserByIdResultMap" parameterType="int" resultMap="userResultMap">

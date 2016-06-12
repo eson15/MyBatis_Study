@@ -1,5 +1,6 @@
 package mybatis.mapper;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import mybatis.mapper.UserMapper;
@@ -61,8 +62,15 @@ private SqlSessionFactory sqlSessionFactory;
 		//创建包装对象，设置查询条件
 		UserQueryVo userQueryVo = new UserQueryVo();
 		User user = new User();
+		//由于这里使用动态sql，如果不设置某个值，条件不会拼接在sql中
 		user.setSex("男");
 		user.setUsername("倪升武");
+		//传入多个id
+		List<Integer> ids = new ArrayList<Integer>();
+		ids.add(1);
+		ids.add(12);
+		ids.add(17);
+		userQueryVo.setIds(ids);
 		userQueryVo.setUser(user);
 		
 		//调用userMapper的方法
