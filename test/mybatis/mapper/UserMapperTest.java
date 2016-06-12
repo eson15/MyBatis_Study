@@ -16,7 +16,7 @@ import org.junit.Test;
 
 public class UserMapperTest {
 
-private SqlSessionFactory sqlSessionFactory;
+	private SqlSessionFactory sqlSessionFactory;
 	
 	@Before
 	public void setUp() throws Exception {
