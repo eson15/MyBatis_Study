@@ -67,10 +67,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  orders.*,
 		  user.`username`,
 		  user.`sex`,
-		  user.`address` 
+		  user.`address`,
+		  orderdetail.`id` orderdetail_id,
+		  orderdetail.`items_id`,
+		  orderdetail.`items_num`,
+		  orderdetail.`orders_id`
 		FROM
 		  orders,
-		  USER 
-		WHERE orders.`user_id` = user.`id` 
+		  USER,
+		  orderdetail 
+		WHERE orders.`user_id`=user.`id` AND orders.`id` = orderdetail.`orders_id` 
 	</select>
 </mapper>
