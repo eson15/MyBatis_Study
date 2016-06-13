@@ -6,3 +6,7 @@
 <br/><font size=3>[原始dao开发方法及其弊端](http://blog.csdn.net/eson_15/article/details/51598500)
 <br/><font size=3>[mapper代理方法开发dao](http://blog.csdn.net/eson_15/article/details/51601204)
 <br/><font size=3>[SqlMapConfig.xml文件中的配置总结](http://blog.csdn.net/eson_15/article/details/51604171)
+<br/><font size=3>[输入映射和输出映射](http://blog.csdn.net/eson_15/article/details/51637873)
+<br/><font size=3>[动态sql](http://blog.csdn.net/eson_15/article/details/51649245)
+<br/><font size=3>[高级映射之一对一查询](http://blog.csdn.net/eson_15/article/details/51648140)
+<br/><font size=3>[高级映射之一对多查询](http://blog.csdn.net/eson_15/article/details/51648904)
