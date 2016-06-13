@@ -26,6 +26,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="address" property="address"/>
 		</association>
 	</resultMap>
+	
+	<resultMap type="mybatis.po.Orders" id="OrdersAndOrderDetailResultMap" extends="OrdersUserResultMap">
+		<!-- 配置映射订单信息和关联的用户信息和上面的一样，继承上面的即可 -->
+		<!-- 配置关联的订单明细信息 -->
+		<collection property="orderdetails" ofType="mybatis.po.Orderdetail">
+			<id column="orderdetail_id" property="id"/>
+			<result column="items_id" property="itemsId"/>
+			<result column="items_num" property="itemsNum"/>
+			<result column="orders_id" property="ordersId"/>
+		</collection>
+	</resultMap>
 
 	<select id="findOrdersUser" resultType="mybatis.po.OrdersCustom">
 		SELECT 
@@ -40,6 +51,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="findOrdersUserResultMap" resultMap="OrdersUserResultMap">
+		SELECT 
+		  orders.*,
+		  user.`username`,
+		  user.`sex`,
+		  user.`address` 
+		FROM
+		  orders,
+		  USER 
+		WHERE orders.`user_id` = user.`id` 
+	</select>
+	
+	<select id="findOrdersAndOrderDetailResultMap" resultMap="OrdersAndOrderDetailResultMap">
 		SELECT 
 		  orders.*,
 		  user.`username`,
