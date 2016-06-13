@@ -1,6 +1,7 @@
 package mybatis.po;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
 	
@@ -10,13 +11,16 @@ public class User {
 	private String sex;
 	private String address;
 	
-	@Override
-	public String toString() {
-		return "User [username=" + username + ", birthday=" + birthday
-				+ ", sex=" + sex + ", address=" + address + "]";
-	}
+	private List<Orders> ordersList;
 	
 		
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", birthday="
+				+ birthday + ", sex=" + sex + ", address=" + address
+				+ ", ordersList=" + ordersList + "]";
+	}
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,6 +63,16 @@ public class User {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+
+	public List<Orders> getOrdersList() {
+		return ordersList;
+	}
+
+
+	public void setOrdersList(List<Orders> ordersList) {
+		this.ordersList = ordersList;
 	}
 
 }

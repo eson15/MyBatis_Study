@@ -8,7 +8,8 @@ public class Orderdetail {
     private Integer itemsId;
 
     private Integer itemsNum;
-
+    
+    private Items items;
     public Integer getId() {
         return id;
     }
@@ -41,10 +42,20 @@ public class Orderdetail {
         this.itemsNum = itemsNum;
     }
 
+	public Items getItems() {
+		return items;
+	}
+
+	public void setItems(Items items) {
+		this.items = items;
+	}
+
 	@Override
 	public String toString() {
 		return "Orderdetail [id=" + id + ", ordersId=" + ordersId
-				+ ", itemsId=" + itemsId + ", itemsNum=" + itemsNum + "]";
+				+ ", itemsId=" + itemsId + ", itemsNum=" + itemsNum
+				+ ", items=" + items + "]";
 	}
-    
+
+	
 }

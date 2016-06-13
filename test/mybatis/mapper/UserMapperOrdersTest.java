@@ -5,6 +5,7 @@ import java.util.List;
 
 import mybatis.po.Orders;
 import mybatis.po.OrdersCustom;
+import mybatis.po.User;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -50,6 +51,14 @@ public class UserMapperOrdersTest {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		UserMapperOrders userMapperOrders = sqlSession.getMapper(UserMapperOrders.class);
 		List<Orders> list = userMapperOrders.findOrdersAndOrderDetailResultMap();
+		System.out.println(list);
+	}
+	
+	@Test
+	public void findUserAndItemsResultMap() throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		UserMapperOrders userMapperOrders = sqlSession.getMapper(UserMapperOrders.class);
+		List<User> list = userMapperOrders.findUserAndItemsResultMap();
 		System.out.println(list);
 	}
 

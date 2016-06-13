@@ -82,6 +82,6 @@ public class Orders {
 				+ ", createtime=" + createtime + ", note=" + note + ", user="
 				+ user + ", orderdetails=" + orderdetails + "]";
 	}
-    
-    
+
+	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import mybatis.po.Orders;
 import mybatis.po.OrdersCustom;
+import mybatis.po.User;
 
 public interface UserMapperOrders {
 	
@@ -13,6 +14,10 @@ public interface UserMapperOrders {
 	//查询订单，关联查询用户信息,使用resultMap
 	public List<OrdersCustom> findOrdersUserResultMap() throws Exception;
 	
+	//查询订单（关联用户）及订单明细
 	public List<Orders> findOrdersAndOrderDetailResultMap() throws Exception;
+	
+	//查询订单（关联用户）及订单明细
+	public List<User> findUserAndItemsResultMap() throws Exception;
 
 }
