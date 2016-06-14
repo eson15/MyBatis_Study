@@ -10,3 +10,4 @@
 <br/><font size=3>[动态sql](http://blog.csdn.net/eson_15/article/details/51649245)
 <br/><font size=3>[高级映射之一对一查询](http://blog.csdn.net/eson_15/article/details/51648140)
 <br/><font size=3>[高级映射之一对多查询](http://blog.csdn.net/eson_15/article/details/51648904)
+<br/><font size=3>[高级映射之多对多查询](http://blog.csdn.net/eson_15/article/details/51655188)
