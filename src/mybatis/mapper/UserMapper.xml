@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  -->
 <mapper namespace="mybatis.mapper.UserMapper">
 
-	<!-- 开启本mapper的namespace下的二级缓存（默认的） -->
+	<!-- 开启本mapper的namespace下的二级缓存 -->
 	<cache type="org.mybatis.caches.ehcache.EhcacheCache" />
 
 	<sql id="query_user_where">
