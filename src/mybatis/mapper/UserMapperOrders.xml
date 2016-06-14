@@ -70,6 +70,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</collection>
 		</collection>
 	</resultMap>
+	
+	<!-- 延迟加载的resultMap -->
+	<resultMap type="mybatis.po.Orders" id="OrdersUserLazyLoadingResultMap">
+		<!--对订单信息进行映射配置  -->
+			<id column="id" property="id"/>
+			<result column="user_id" property="userId"/>
+			<result column="number" property="number"/>
+			<result column="createtime" property="createtime"/>
+			<result column="note" property="note"/>
+			
+			<!-- 实现对用户信息进行延迟加载
+			select：指定延迟加载需要执行的statement的id（是根据user_id查询用户信息的statement）
+			column：订单信息中关联用户信息查询的列，是user_id -->
+			
+			<association property="user"  javaType="mybatis.po.User"
+			 select="mybatis.mapper.UserMapper.findUserById" column="user_id">
+			
+			</association>
+		
+	</resultMap>
 
 	<select id="findOrdersUser" resultType="mybatis.po.OrdersCustom">
 		SELECT 
@@ -131,5 +151,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  orderdetail,
 		  items
 		WHERE orders.`user_id`=user.`id` AND orders.`id` = orderdetail.`orders_id` AND orderdetail.`items_id`=items.`id`
+	</select>
+	
+	<select id="findOrdersUserLazyLoading" resultMap="OrdersUserLazyLoadingResultMap">
+		SELECT * FROM orders
 	</select>
 </mapper>

@@ -10,9 +10,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<!-- <property name="" value=""/>   -->
 	</properties>
 	
-	<!-- 需要的时候在再用
-	<settings></settings>
-	 -->
+	<!-- 需要的时候在再用 -->
+
+	<settings>
+		<!-- 打开延迟加载的开关 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 将积极加载改为消极加载，即延迟加载 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+	</settings>
 	 
 	<!-- 别名的定义 -->
 	<typeAliases>
