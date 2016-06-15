@@ -13,3 +13,4 @@
 <br/><font size=3>[高级映射之多对多查询](http://blog.csdn.net/eson_15/article/details/51655188)
 <br/><font size=3>[MyBatis中的延迟加载](http://blog.csdn.net/eson_15/article/details/51668523)
 <br/><font size=3>[MyBatis中的一级缓存](http://blog.csdn.net/eson_15/article/details/51669021)
+<br/><font size=3>[MyBatis中的二级缓存](http://blog.csdn.net/eson_15/article/details/51669608)
